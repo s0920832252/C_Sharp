@@ -2,7 +2,7 @@
 # 檔案結構
 
 ### C#
-1. LinQ
+- LinQ
   - 放置LinQ Proj
 2. WPF
   - 放置WPF Proj
