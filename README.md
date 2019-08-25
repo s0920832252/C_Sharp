@@ -2,9 +2,9 @@
 # 檔案結構
 
 ### C#
-- LinQ
+* LinQ
   - 放置LinQ Proj
-2. WPF
+* WPF
   - 放置WPF Proj
-3. Essay
+* Essay
   - 靈思泉湧的小Proj
