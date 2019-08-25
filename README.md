@@ -9,5 +9,5 @@
 * Essay
   - 靈思泉湧的小Proj
 * Notes
-  - Note folders
+  - Note folder
     - README.md
