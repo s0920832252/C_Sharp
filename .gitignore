@@ -5,3 +5,6 @@ bin/
 
 # ignore obj folder
 obj/
+
+# ignoeer .vs folder
+.vs/
