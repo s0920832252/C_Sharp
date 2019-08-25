@@ -1,7 +1,7 @@
 # C_Sharp .gitignore
 
-# ©¿ºñ bin folder
+# ignore bin folder
 bin/
 
-# ©¿²¤ obj folder
+# ignore obj folder
 obj/
