@@ -52,9 +52,9 @@ tags: LinQ, LinQ基礎 , C#
     
     ![](https://i.imgur.com/ze6pKBH.gif)
     
-    Current屬性 : 回傳**目前**走訪到的成員內容值.
-    MoveNext() : 走訪到下一個成員 , 並回傳bool值來告知向下移動是否成功. 
-    Reset : 重置走訪的位置.
+    - Current屬性 : 回傳**目前**走訪到的成員內容值.
+    - MoveNext() : 走訪到下一個成員 , 並回傳bool值來告知向下移動是否成功. 
+    - Reset : 重置走訪的位置.
     
 ---
 
