@@ -72,6 +72,8 @@ Func是一個具有回傳值的泛型委派. 其型式為 Func<T , T1 , … , Tn
 Func<T , T1 , … , Tn , TResult> 代表一個委派有n+1個輸入參數 , 其型別分別為 T ~ Tn , 且有一個型別為TResult的回傳值 ,
 
 下圖是微軟預先定義的Func , 總共有十七個. 也就是說Func的輸入參數最多可以接受十六個輸入參數. 最少零個.
+
+
 ![](https://i.imgur.com/5v7AYfi.png)
 
 ##### 範例
