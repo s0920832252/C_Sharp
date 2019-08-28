@@ -8,3 +8,4 @@
 6. [LINQ基礎 - Enumerable](https://hackmd.io/khKtTK-mSPyCm7wvE9ghmw)
 7. [LINQ基礎 - Yield](https://hackmd.io/P_h9ag3ETIOuZMrCq41hWQ?view)
 8. [LINQ基礎 - 委派與Lambda](https://hackmd.io/sU49zV1bSmaaHQIty9o4cg)
+9. [LinQ基礎 - 泛型委派與Func、Action、Predicate](https://hackmd.io/xQoAvh0sTdaiHpSc9qZvDQ?view)
