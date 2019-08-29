@@ -74,10 +74,43 @@ tags: LinQ, LinQ基礎 , C#
 * CityExtension類別為靜態類別
 * CityExtension類別被定義在ConsoleApp1內
 * 擴充方法MaskName依附在自定義類別City上
-* ![](https://i.imgur.com/8t8W4vI.png)    
+    ```C#
+    public class City
+    {
+         public string Name = "CityIsGoodPerson";
+    }
+
+    public static class CityExtension
+    {
+         public static int _plainTextLen = 6;
+         public static string _asterisk = "*";
+         public static string MaskName(this City city)
+         {
+              var orinialName = city.Name;
+              var result = orinialName;
+              if (orinialName.Length > _plainTextLen)
+              {
+                   var plainText = orinialName.Substring(0, _plainTextLen);
+                   var asteriskCount = orinialName.Length - _plainTextLen;
+                   var encodingText = Enumerable.Repeat(_asterisk, asteriskCount).Aggregate((l, r) => l + r);
+                  result = plainText + encodingText;
+              }
+              return result;
+         }
+    }
+    ```
+
 * 以下是呼叫程式碼
-![](https://i.imgur.com/DGAEtZB.png)
-* 以下是結果
+    ```C#
+    static void Main(string[] args)
+    {
+         var cityMan = new City();
+         Console.WriteLine("透過物件呼叫擴充方法結果 : " + cityMan.MaskName());
+         Console.WriteLine("靜態呼叫擴充方法結果 : " + CityExtension.MaskName(cityMan));
+         Console.ReadKey();
+    }
+    ```
+* 輸出結果    
 ![](https://i.imgur.com/tJ6hPOl.png)
 
 上述那個例子有兩點值得探討. 
