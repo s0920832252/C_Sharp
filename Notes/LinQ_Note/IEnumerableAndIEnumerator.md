@@ -104,7 +104,7 @@ foreach (var item in fiveelements)
 - in : 呼叫MoveNext()
 - item :     
     - 若回傳false則代表走訪結束 , 結束迴圈
-    - 若回傳treu , 走訪尚未結束並回傳Current屬性
+    - 若回傳true , 走訪尚未結束並回傳Current屬性
 
 ---
 
