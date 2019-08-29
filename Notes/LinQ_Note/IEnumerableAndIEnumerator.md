@@ -83,9 +83,28 @@ public class FiveElementsEnumerator : IEnumerator
 ##### 測試程式
 ![](https://i.imgur.com/9BtSkTR.png)
 
-列出所有元素的方式有兩種
+走訪所有元素的方式有兩種
 * 採用 foreach
 * 採用 GetEnumerator() 的方式
+
+不過由上面範例可知 , Foreach語法其實就是採用GetEnumerator的方式實作 . 也就是說 foreach 其實是做了這三個步驟
+1. 呼叫 fiveelements.GetEnumerator() , 得到一個 IEnumerator.
+2. 不斷呼叫 iterator.MoveNext() 以判斷走訪是否結束
+    - 如果 IEnumerable 已經走訪完畢，則會回傳 false. 
+    - 如果尚未拜訪完 , 則會回傳 true , 並將 Current 指標移到下一個元素上.
+    
+3. 回傳 Current 屬性 .
+
+所以下列這一行 , 可以這麼解讀
+```C#
+foreach (var item in fiveelements)
+```
+- foreach : 代表要走訪的進入點.
+- fiveelements : 呼叫GetEnumerator()
+- in : 呼叫MoveNext()
+- item :     
+    - 若回傳false則代表走訪結束 , 結束迴圈
+    - 若回傳treu , 走訪尚未結束並回傳Current屬性
 
 ---
 
