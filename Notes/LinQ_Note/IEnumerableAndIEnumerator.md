@@ -87,13 +87,13 @@ public class FiveElementsEnumerator : IEnumerator
 * 採用 foreach
 * 採用 GetEnumerator() 的方式
 
-不過由上面範例可知 , Foreach語法其實就是採用GetEnumerator的方式實作 . 也就是說 foreach 其實是做了這三個步驟
+不過由上面範例可知 , Foreach語法其實就是採用GetEnumerator的方式實作 . 也就是說 foreach 其實是做了這四個步驟
 1. 呼叫 fiveelements.GetEnumerator() , 得到一個 IEnumerator.
-2. 不斷呼叫 iterator.MoveNext() 以判斷走訪是否結束
+2. 呼叫 iterator.MoveNext() 以判斷走訪是否結束
     - 如果 IEnumerable 已經走訪完畢，則會回傳 false. 
-    - 如果尚未拜訪完 , 則會回傳 true , 並將 Current 指標移到下一個元素上.
-    
+    - 如果尚未拜訪完 , 則會回傳 true , 並將 Current 指標移到下一個元素上.    
 3. 回傳 Current 屬性 .
+4. 重複動作 2 & 3
 
 所以下列這一行 , 可以這麼解讀
 ```C#
