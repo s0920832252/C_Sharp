@@ -116,7 +116,12 @@ public class CityManager
 - 使用yield return可以輕鬆建立一個IEnumerable<T>的資料集合.
 - 執行yield return後 , 下一次被呼叫時 , 會繼續從上一次的yield return後開始執行.
 - 呼叫yield break後 , 會離開foreach主體.
+- 如果一個區塊(block)中有 yield 陳述式，則此區塊就叫做Iterator Block
+    - 一個方法的區塊如果是Iterator Block , 則它的回傳值會是IEnumerable或是IEnumerator. 請參考[C# 語言規格-類別](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/language-specification/classes#iterators)
+    - ![](https://i.imgur.com/fHr22mu.png)
 
+    
+    
 
 ---
 
