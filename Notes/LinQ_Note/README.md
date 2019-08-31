@@ -20,6 +20,6 @@
 18. Quantifiers - Any & All & SequenceEqual
 19. Generation Operators - Repet & Range
 20. Miscellaneous Operators - Concat & EqualAll & Zip & DefaultIfEmpty 
-21. Element Operators - First & Single & Last & ElementAt & (_leftThreeItem)OrDefault
+21. Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault
 22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 23. Join Operators - Join
