@@ -10,16 +10,17 @@
 8. [LINQ基礎 - 委派與Lambda](https://hackmd.io/sU49zV1bSmaaHQIty9o4cg)
 9. [LinQ基礎 - 泛型委派與Func、Action、Predicate](https://hackmd.io/xQoAvh0sTdaiHpSc9qZvDQ?view)
 10. [LinQ基礎 - 延遲執行(Deferred Execution)](https://hackmd.io/W__5nByUSCSWMsUEL82ZbA?view)
+11. [Iterator class (未完成)](https://hackmd.io/@CityChen/BJw6sfOSH)
 11. Projection Operators - Select & SelectMany
 12. Restriction Operators - Where
-13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
-14. Grouping Operators - GroupBy & ToLookup
+21. Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault
 15. Aggregate Operators - Count & Sun & Average & Min & Max & Aggregate
+18. Quantifiers - Any & All & SequenceEqual
+22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
+14. Grouping Operators - GroupBy & ToLookup
+13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
 16. Partitioning Operators - Take & TakeWhile & Skip & SkipWhile
 17. Set Operators - Distinct & Union & Intersect & Except
-18. Quantifiers - Any & All & SequenceEqual
 19. Generation Operators - Repet & Range
 20. Miscellaneous Operators - Concat & EqualAll & Zip & DefaultIfEmpty 
-21. Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault
-22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 23. Join Operators - Join
