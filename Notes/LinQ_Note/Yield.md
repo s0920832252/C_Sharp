@@ -121,7 +121,7 @@ public class CityManager
 ---
 
 ### 補充 - 不使用yield實作 走訪list內成員
-```
+```C#
 public class CityManger
 {
      public static IEnumerable<T> GetEnumerable<T>(List<T> _numbers) => new Enumerable<T>(_numbers);
