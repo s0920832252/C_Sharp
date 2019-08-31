@@ -234,6 +234,29 @@ foreach(走訪查詢結果)->Select : 繼續取資料 , 直到取完.
 
 ---
 
+### 補充 : 立即執行
+雖然 LinQ 的方法有些具有延遲執行的特性 , 但有些則沒有.
+像是
+
+1. 轉型類型的 API
+    - ToList()
+    - ToArray()
+    - ToDictionary() 
+    - ToHashSet()
+    - ToLookUp()
+    - ...?
+2. 回傳值為單一值
+    - Max()
+    - Min()
+    - Count()
+    - First()
+    - Last()
+    - Single()
+    - Average()
+    - Sum()
+    - ...?
+
+---
 ### Thank you! 
 
 You can find me on
