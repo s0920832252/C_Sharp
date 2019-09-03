@@ -202,13 +202,58 @@ ps : 網路上一些文章習慣稱呼這樣透過使用匿名函式實體化的
 由上述參考可知 , 委派有一個清單儲存多個方法實體 , 並且再呼叫委派時 , 依序呼叫這些方法.
 
 ##### 範例
-![](https://i.imgur.com/ZaikCRy.png)
+```C#
+public delegate bool CityPredicate<T>(T item);
+        static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, CityPredicate<T> predicate)
+{
+     foreach (var item in source)
+     {
+          if (predicate(item))
+          {
+               yield return item;
+          }
+     }
+}
+
+static void Main(string[] args)
+{
+     List<int> vs = new List<int>() { 5, 4, 8, 7 };
+     foreach (var item in vs.MyWhere(number => number >= 5))
+     {
+          Console.WriteLine(item);
+     }
+     Console.ReadKey();
+}
+```
+
+輸出結果 : **5 , 8 , 7**
 
 #### GetInvocationList 
 若是委派具有回傳值 , 並需要個別取得其每一個方法的結果 , 可使用 GetInvocationList ()
 
 ###### 範例
-![](https://i.imgur.com/FQ57354.png)
+
+```C#
+public delegate int Math(int num);
+public static Math math = null;
+
+static void Main(string[] args)
+{
+    math += (num) => num + 1;
+    math += (num) => num - 1;
+    math += (num) => num * 1;
+
+    foreach (Math deleglateItem in math.GetInvocationList())
+    {
+        Console.WriteLine(deleglateItem.Invoke(10));
+    }
+
+    Console.ReadKey();
+}
+```
+
+輸出 :  **11 , 9 , 10**
+
 
 
 ---
