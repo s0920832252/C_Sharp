@@ -13,7 +13,7 @@
 11. [Iterator class (未完成)](https://hackmd.io/@CityChen/BJw6sfOSH)
 11. [Projection Operators - Select](https://hackmd.io/9TPoAhThTzGCVvwGxfwqOg?view)
 12. [Projection Operators - SelectMany](https://hackmd.io/mNBV8TbOQ32VSdY83nLcHg?view)
-12. Restriction Operators - Where
+12. [Restriction Operators - Where](https://hackmd.io/DcrS1BVHT9C1ygmUxU-yGg?view)
 21. Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault
 15. Aggregate Operators - Count & Sun & Average & Min & Max & Aggregate
 18. Quantifiers - Any & All & SequenceEqual
