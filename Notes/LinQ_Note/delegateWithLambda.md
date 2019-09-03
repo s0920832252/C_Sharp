@@ -189,19 +189,6 @@ public class City
 ps : 網路上一些文章習慣稱呼這樣透過使用匿名函式實體化的委派為**匿名委派** , 不過我找了微軟Doc很久 , 並沒有發現這樣的稱呼呀 :crying_cat_face: 
 
 以下簡易地實作LinQ的Where方法來作為此篇的結論
-- ![](https://i.imgur.com/NJbyJIy.png)
-
----
-
-### 補充
-
-#### [MulticastDelegate](https://docs.microsoft.com/zh-tw/dotnet/api/system.multicastdelegate?redirectedfrom=MSDN&view=netframework-4.8)
-
-> 表示多重傳送的委派 (Delegate)；也就是說，委派可以在它的引動過程清單中包含一個以上的項目。
-
-由上述參考可知 , 委派有一個清單儲存多個方法實體 , 並且再呼叫委派時 , 依序呼叫這些方法.
-
-##### 範例
 ```C#
 public delegate bool CityPredicate<T>(T item);
         static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, CityPredicate<T> predicate)
@@ -227,6 +214,42 @@ static void Main(string[] args)
 ```
 
 輸出結果 : **5 , 8 , 7**
+
+---
+
+### 補充
+
+#### [MulticastDelegate](https://docs.microsoft.com/zh-tw/dotnet/api/system.multicastdelegate?redirectedfrom=MSDN&view=netframework-4.8)
+
+> 表示多重傳送的委派 (Delegate)；也就是說，委派可以在它的引動過程清單中包含一個以上的項目。
+
+由上述參考可知 , 委派有一個清單儲存多個方法實體 , 並且再呼叫委派時 , 依序呼叫這些方法.
+
+##### 範例
+
+```C#
+public delegate void Print();
+public static Print print = null;
+
+static void Main(string[] args)
+{
+    print += () => Console.WriteLine("Test1");
+    print += () => Console.WriteLine("Test2");
+    print += () => Console.WriteLine("Test3");
+
+    print();            
+
+    Console.ReadKey();
+}
+```
+
+
+
+輸出結果
+
+- ![](https://i.imgur.com/xWJm54q.png)
+
+
 
 #### GetInvocationList 
 若是委派具有回傳值 , 並需要個別取得其每一個方法的結果 , 可使用 GetInvocationList ()
