@@ -8,7 +8,7 @@ tags: LinQ , C# , Restriction Operators
 > Filters a sequence of values based on a predicate.
 
 Where 在 LINQ 中就是篩選條件的方法 , 我們可以使用 Where **取得集合中符合描述的元素.**
-其使用方式與 List.FindAll() 以及 Array.FindAll() 類似 , 但差別在於 Where 的輸入參數以及回傳結果的型別皆為 IEnumerable , 而非 List 或是 Array . 因此 Where 具有延遲執行的優點.
+其使用方式與 List.FindAll() 以及 static Array.FindAll() 類似 , 但差別在於 Where 的輸入參數以及回傳結果的型別皆為 IEnumerable , 而非 List 或是 Array . 因此因為 Where 具有延遲執行的優點 , 所以會建議使用 Where.
 
 ### 使用時機
 
