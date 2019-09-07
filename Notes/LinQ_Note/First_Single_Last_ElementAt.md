@@ -555,8 +555,6 @@ public static TSource MyElementAtOrDefault<TSource>(this IEnumerable<TSource> so
 
 3. 建議只有非 Array 以及 List 資料型別才使用 ElementAt .
 
-4. 若是 Array 以及 List 資料型態 , 想取出第一個、最後一個或是唯一的元素 , 不建議使用 First、Single、Last. 因為這兩個集合類型有實作 indexer , 所以可以直接取值.
-
 ---
 
 ### Thank you! 
