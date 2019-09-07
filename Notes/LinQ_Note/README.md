@@ -14,8 +14,8 @@
 11. [Projection Operators - Select](https://hackmd.io/9TPoAhThTzGCVvwGxfwqOg?view)
 12. [Projection Operators - SelectMany](https://hackmd.io/mNBV8TbOQ32VSdY83nLcHg?view)
 12. [Restriction Operators - Where](https://hackmd.io/DcrS1BVHT9C1ygmUxU-yGg?view)
-21. Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault
-15. Aggregate Operators - Count & Sun & Average & Min & Max & Aggregate
+21. [Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault
+15. Aggregate Operators - Count & Sun & Average & Min & Max & Aggregate](https://hackmd.io/xH9XwCvDQtq0oTi2hkAW6g?view#%E7%B8%BD%E7%B5%90)
 18. Quantifiers - Any & All & SequenceEqual
 22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 14. Grouping Operators - GroupBy & ToLookup
