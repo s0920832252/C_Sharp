@@ -17,7 +17,8 @@
 21. [Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault](https://hackmd.io/xH9XwCvDQtq0oTi2hkAW6g?view#%E7%B8%BD%E7%B5%90)
 
 14. Grouping Operators - GroupBy & ToLookup
-15. Aggregate Operators - Count & Sun & Average & Min & Max & Aggregate
+15. [Aggregate Operators - Count & Sum & Average & Min & Max](https://hackmd.io/itytIKAnRrWWUoZ79iyypQ?view)
+16. Aggregate Operators - Aggregate
 22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
 16. Partitioning Operators - Take & TakeWhile & Skip & SkipWhile
