@@ -191,7 +191,7 @@ ps : 網路上一些文章習慣稱呼這樣透過使用匿名函式實體化的
 以下簡易地實作LinQ的Where方法來作為此篇的結論
 ```C#
 public delegate bool CityPredicate<T>(T item);
-        static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, CityPredicate<T> predicate)
+static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, CityPredicate<T> predicate)
 {
      foreach (var item in source)
      {
