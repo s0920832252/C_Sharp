@@ -18,7 +18,7 @@
 
 14. Grouping Operators - GroupBy & ToLookup
 15. [Aggregate Operators - Count & Sum & Average & Min & Max](https://hackmd.io/itytIKAnRrWWUoZ79iyypQ?view)
-16. Aggregate Operators - Aggregate
+16. [Aggregate Operators - Aggregate](https://hackmd.io/N-wyJYp8QC2Ro1KAXnzfzA)
 22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
 16. Partitioning Operators - Take & TakeWhile & Skip & SkipWhile
