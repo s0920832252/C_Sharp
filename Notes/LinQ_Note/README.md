@@ -16,14 +16,14 @@
 12. [Restriction Operators - Where](https://hackmd.io/DcrS1BVHT9C1ygmUxU-yGg?view)
 21. [Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault](https://hackmd.io/xH9XwCvDQtq0oTi2hkAW6g?view#%E7%B8%BD%E7%B5%90)
 
-14. Grouping Operators - GroupBy & ToLookup
+14. Grouping Operators - GroupBy & Lookup
+22. Conversion Operators - ToArray & ToLookup & ToList & ToDictionary & OfType & Cast & AsEnumerable 
+17. Set Operators - Distinct & Union & Intersect & Except
+13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
 15. [Aggregate Operators - Count & Sum & Average & Min & Max](https://hackmd.io/itytIKAnRrWWUoZ79iyypQ?view)
 16. [Aggregate Operators - Aggregate](https://hackmd.io/N-wyJYp8QC2Ro1KAXnzfzA)
-22. Conversion Operators - ToArray & ToList & ToDictionary & OfType & Cast & AsEnumerable 
-13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
 16. Partitioning Operators - Take & TakeWhile & Skip & SkipWhile
 19. Generation Operators - Repet & Range
 23. Join Operators - Join
 20. Miscellaneous Operators - Concat & Zip & DefaultIfEmpty
 18. Quantifiers - Any & All & SequenceEqual
-17. Set Operators - Distinct & Union & Intersect & Except
