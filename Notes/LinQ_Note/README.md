@@ -16,7 +16,7 @@
 12. [Restriction Operators - Where](https://hackmd.io/DcrS1BVHT9C1ygmUxU-yGg?view)
 21. [Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault](https://hackmd.io/xH9XwCvDQtq0oTi2hkAW6g?view#%E7%B8%BD%E7%B5%90)
 
-14. Grouping Operators - GroupBy & Lookup
+14. [Grouping Operators - GroupBy & Lookup](https://hackmd.io/@CityChen/BkNZ-cJOS)
 22. Conversion Operators - ToArray & ToLookup & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 17. Set Operators - Distinct & Union & Intersect & Except
 13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
