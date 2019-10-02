@@ -13,20 +13,29 @@ tags: LinQ , LinQ基礎 , C#
 
 #### 由上面的簡介引用 , 我們可以知道
 1. var在**編譯時期**就已經決定其真實型別 , 其真實型別依據等號右邊的賦值型別決定.
-    ![](https://i.imgur.com/2RfMaOu.png)
-    - 因為在編譯時期決定真實型別 , 因此當使用var宣告變數型別後 , 要馬上初始化其變數. 否則編譯器會因為無法推斷其型別而無法編譯.
-    
-    - 因為在編譯時期決定真實型別 , 所以當用var宣告變數後 , intellisense可以支援.
-    
-2. 宣告var的變數以及你自己宣告型別的變數並**無差別** , 差別僅在於var是用編譯器來幫你推斷真實型別.
+- ```C#
+  static void Main(string[] args)
+  {
+       var result = 1;
+       Console.WriteLine(result.GetType());
+       Console.ReadKey();
+  }
+  ```
+  執行結果 : ![](https://i.imgur.com/zSgKRER.png)
 
-4. var宣告的變數是一種**區域變數** , 因此只能使用在
+  - 因為在編譯時期決定真實型別 , 因此當使用 var 宣告變數型別後 , 要馬上初始化其變數. 否則編譯器會因為無法推斷其型別而無法編譯.
+    
+  - 因為在編譯時期決定真實型別 , 所以當用 var 宣告變數後 , intellisense 可以支援.
+    
+2. 宣告 var 的變數以及你自己宣告型別的變數並**無差別** , 差別僅在於 var 是用編譯器來幫你推斷真實型別.
+
+4. var 宣告的變數是一種**區域變數** , 因此只能使用在
     - 區域變數（方法範圍內）
     - 迴圈控制變數（For、Foreach）
     - Using 陳述式中，用來建立資源名稱的型別
-    - ps: 方法參數以及方法回傳值是無法宣告成var的喔. :cry: 
+    - 方法參數以及方法回傳值是無法宣告成var的喔. :cry: 
 
-#### 使用var的原因
+#### 使用 var 的原因
 - 開發人員宣告變數型別可以更輕鬆
     - 若是使用強型別方式宣告變數 , 當日後需要更改變數型態時 , 則必須要手動更改宣告變數型態. 但是使用var宣告變數型態則沒有這個困擾 , 開發者可以更專注在功能的開發.
     - 因為編譯器會替我們決定變數型態 , 所以開發者可以更專注在等號右側的賦值正確性上.
@@ -43,13 +52,27 @@ tags: LinQ , LinQ基礎 , C#
 1. 型別名稱是由編譯器產生 , 因此使用者無法自行宣告.
 2. 建立匿名型態變數後 , 其內容值無法變更(唯讀屬性).
 3. 依據下圖建立一匿名類別變數,並印出此變數的型態的程式.
+    ```C#
+    static void Main(string[] args)
+    {
+         var annoymous = new { Name = "小王", Score = 5 };
+         var annoymous2 = new { Name = "小王2", Score = 10 };
+         var annoymous3 = new { Name = "小王3", Score = 6.5 };
+         var annoymous4 = new { Name2 = "小王4", Score2 = 6.5 };
+         Console.WriteLine(annoymous.GetType());
+         Console.WriteLine(annoymous2.GetType());
+         Console.WriteLine(annoymous3.GetType());
+         Console.WriteLine(annoymous4.GetType());
+         Console.ReadKey();
+    }
+    ```    
+    執行結果 : ![](https://i.imgur.com/GAktiaE.png)
 
-    ![](https://i.imgur.com/G595FMa.png)
 
 
 
-    - 從上圖可以看到 , 變數型態是<>f__AnonymousType0`2[System.String,System.Int32] 這樣的東西. 如MSDN上所說 , 這是一個臨時產生的變數名稱 , 所以當離開方法區塊 , 這個變數的生命週期就結束了(失去使用上的意義).
-    - 基於效率考量 , 編譯器會重複使用具有**相同參數個數與參數名稱**的匿名型別 , 而不會每碰到一個匿名型別的宣告就產生一個新的泛型類別. 所以annoymous和annoymous2以及annoymous3的實際型別都一樣.
+    - 從上圖可以看到 , 變數型態是<>f__AnonymousType0\`2 以及 <>f__AnonymousType1\`2 這樣的東西. 如 MSDN 上所說 , 這是一個臨時產生的變數名稱 , 所以當離開方法區塊 , 這個變數的生命週期就結束了(失去使用上的意義).
+    - 基於效率考量 , 編譯器會重複使用具有**相同參數個數與參數名稱**的匿名型別 , 而不會每碰到一個匿名型別的宣告就產生一個新的泛型類別. 所以 annoymous 和 annoymous2 以及annoymous3 的實際型別都一樣.
     
 #### 使用時機
 臨時需要一個簡單的類別來儲存一些簡單資料 , 但又不想為了這個簡單的需求另外定義一個類別或是使用弱型別的物件. 像是 ArrayList , DataTable , DataRow 等等…  , 此時可考慮使用C#的匿名型別 , 開發者只要用很簡單的new就能創造匿名型別. 例如只是想要組一個JSON字串的時候.
@@ -60,10 +83,20 @@ tags: LinQ , LinQ基礎 , C#
 
 隱含型別與匿名型別最大的差異就是它們根本就是完全不同的東西 , 不過這兩樣東西在使用LinQ的時候 , 可能會使用到.
 
-有些LINQ方法會回傳的型別是由傳入的delegate方法決定的 , 而delegate方法可以回傳匿名型別 , 因此只要delegate方法的回傳內容一改 , 前面宣告的型別可能又要改 , 那還不如直接用var還比較省事 , 另外若是碰到回傳的是IEnumerable<T>時（T可能是匿名型別）則不得不用var來宣告.
+有些LINQ方法會回傳的型別是由傳入的委派方法決定的 , 而委派方法可以回傳匿名型別 , 因此只要委派方法的回傳內容一改 , 前面宣告的型別可能又要改 , 那還不如直接用var還比較省事 , 另外若是碰到回傳的是IEnumerable<T>時（T可能是匿名型別）則不得不用var來宣告.
 
-- 必須使用var來宣告.
-![](https://i.imgur.com/uwKEd0O.png)
+- 必須使用var來宣告的情況.
+```C#
+var Students = new[] { 
+                        new { Name = "小王", Score = 26 }, 
+                        new { Name = "小小", Score = 78 }
+                     };
+                     
+foreach (var studnet in Students)
+{
+     Console.WriteLine($"學生 {studnet.Name} 考了 {studnet.Score}");
+}
+```
 
 ---
 
@@ -81,12 +114,12 @@ tags: LinQ , LinQ基礎 , C#
 
 > dynamic 類型的行為與 object 類型類似。 不過，不會解決包含 dynamic 類型之運算式的作業，或編譯器不會對其進行類型檢查。 編譯器會將作業資訊封裝在一起，而且稍後在執行階段會使用這項資訊來評估作業。 在此程序期間，會將 dynamic 類型的變數編譯為 object 類型的變數。
 
-由引用可知 , dynamic在編譯時期的型態為object , 其真實型態會在執行時期才決定. 因此下圖的程式編譯會過 , 但會在執行期間出錯.
+由引用可知 , dynamic在編譯時期的型態為 object , 其真實型態會在執行時期才決定. 因此下圖的程式編譯會過 , 但會在執行期間出錯.
 
 ![](https://i.imgur.com/P2TMGfB.png)
 
-dynamic通常使用於真實型態是動態決定或是未知的時候.
-例如方法參數傳入一 object型態的變數(真實型態可能是開發者自訂類別). 因此在宣告變數來接這個object變數的時候,無法寫死單一個類別. 然後你知道該類別的某個變數或是方法名稱 , 希望使用那些方法的時候. ps : 此情況也可以使用Reflection解決
+dynamic 通常使用於真實型態是動態決定或是未知的時候.
+例如方法參數傳入一 object 型態的變數(真實型態可能是開發者自訂類別). 因此在宣告變數來接這個object變數的時候 , 無法寫死單一個類別. 然後你知道該類別的某個變數或是方法名稱 , 希望使用那些方法的時候. 當然此情況也可以使用 Reflection 解決
 
 ---
 
