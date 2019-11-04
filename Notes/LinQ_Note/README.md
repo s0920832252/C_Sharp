@@ -17,9 +17,9 @@
 21. [Element Operators - First & Single & Last & ElementAt & (_leftFourItem)OrDefault](https://hackmd.io/xH9XwCvDQtq0oTi2hkAW6g?view#%E7%B8%BD%E7%B5%90)
 
 16. [Partitioning Operators - Take & TakeWhile & TakeLast & Skip & SkipWhile & SkipLast](https://hackmd.io/R4TmtFzRTWanD6Hla0-jHQ?view)
-19. Generation Operators - Repet & Range & Empty
+19. Generation Operators - Repet & Range & Empty & DefaultIfEmpty
 23. Join Operators - Join
-20. Miscellaneous Operators - Concat & SequenceEqual & Zip & DefaultIfEmpty
+20. Miscellaneous Operators - Concat & SequenceEqual & Zip 
 18. Quantifiers - Any & All 
 14. [Grouping Operators - GroupBy & Lookup (未完成)](https://hackmd.io/@CityChen/BkNZ-cJOS)
 22. Conversion Operators - ToArray & ToLookup & ToList & ToDictionary & OfType & Cast & AsEnumerable 
