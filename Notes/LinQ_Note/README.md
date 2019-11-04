@@ -22,7 +22,7 @@
 20. Miscellaneous Operators - Concat & SequenceEqual & Zip 
 18. Quantifiers - Any & All 
 14. [Grouping Operators - GroupBy & Lookup (未完成)](https://hackmd.io/@CityChen/BkNZ-cJOS)
-22. Conversion Operators - ToArray & ToLookup & ToList & ToDictionary & OfType & Cast & AsEnumerable 
+22. Conversion Operators - ToArray & ToLookup & ToList & ToDictionary & OfType & Cast & AsEnumerable & AsQueryable
 17. Set Operators - Distinct & Union & Intersect & Except
 13. Ordering Operators - OrderBy & ThenBy & OrderByDescending & ThenByDescending & Reverse
 15. [Aggregate Operators - Count & Sum & Average & Min & Max](https://hackmd.io/itytIKAnRrWWUoZ79iyypQ?view)
