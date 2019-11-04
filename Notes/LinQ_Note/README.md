@@ -19,8 +19,8 @@
 16. [Partitioning Operators - Take & TakeWhile & TakeLast & Skip & SkipWhile & SkipLast](https://hackmd.io/R4TmtFzRTWanD6Hla0-jHQ?view)
 19. Generation Operators - Repet & Range
 23. Join Operators - Join
-20. Miscellaneous Operators - Concat & Zip & DefaultIfEmpty
-18. Quantifiers - Any & All & SequenceEqual
+20. Miscellaneous Operators - Concat & SequenceEqual & Zip & DefaultIfEmpty
+18. Quantifiers - Any & All 
 14. [Grouping Operators - GroupBy & Lookup (未完成)](https://hackmd.io/@CityChen/BkNZ-cJOS)
 22. Conversion Operators - ToArray & ToLookup & ToList & ToDictionary & OfType & Cast & AsEnumerable 
 17. Set Operators - Distinct & Union & Intersect & Except
