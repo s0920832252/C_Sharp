@@ -40,9 +40,9 @@ static void Main(string[] args)
 }
 ```
 ##### 輸出結果
-A
-B
-C
+A   
+B   
+C   
 
 #### 簡單實作自己的 Take
 ```C#
