@@ -101,8 +101,8 @@ static void Main(string[] args)
 }
 ```
 ##### 輸出結果
-ABCDE
-FIJ
+ABCDE    
+FIJ    
 KLMN
 
 ```
@@ -120,7 +120,7 @@ static void Main(string[] args)
 }
 ```
 ##### 輸出結果
-ABCDE
+ABCDE    
 FIJ
 
 
