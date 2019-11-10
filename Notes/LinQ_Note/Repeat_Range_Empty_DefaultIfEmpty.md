@@ -279,8 +279,11 @@ public static IEnumerable<TSource> MyDefaultIfEmptyIterator<TSource>(IEnumerable
 }
 ```
 ### Summary
-- 如果想獲得一个空序列 , 使用 Enumerable.Empty<T> 或是 Enumerable.Repeat
-- 如果想给空序列一个預設值，使用 Enumerable.DefaultIfEmpty
+- 如果想獲得一個特定型式的序列 , 也許可以使用
+    - Enumerable.Repeat
+    - Enumerable.Range
+- 如果想獲得一個空序列 , 使用 Enumerable.Empty<T>
+- 如果想给空序列一個預設值，使用 Enumerable.DefaultIfEmpty
 
 
 
