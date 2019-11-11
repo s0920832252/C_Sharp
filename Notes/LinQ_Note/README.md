@@ -10,7 +10,7 @@
 8. [LINQ基礎 - 委派與Lambda](https://hackmd.io/sU49zV1bSmaaHQIty9o4cg)
 9. [LinQ基礎 - 泛型委派與Func、Action、Predicate](https://hackmd.io/xQoAvh0sTdaiHpSc9qZvDQ?view)
 10. [LinQ基礎 - 延遲執行(Deferred Execution)](https://hackmd.io/W__5nByUSCSWMsUEL82ZbA?view)
-11. [Iterator class (未完成)](https://hackmd.io/@CityChen/BJw6sfOSH)
+11. LINQ基礎 - IComparable vs IComparer And IEquatable vs IEqualityComparer
 11. [Projection Operators - Select](https://hackmd.io/9TPoAhThTzGCVvwGxfwqOg?view)
 12. [Projection Operators - SelectMany](https://hackmd.io/mNBV8TbOQ32VSdY83nLcHg?view)
 12. [Restriction Operators - Where](https://hackmd.io/DcrS1BVHT9C1ygmUxU-yGg?view)
