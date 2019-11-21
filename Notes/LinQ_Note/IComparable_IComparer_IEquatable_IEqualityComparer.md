@@ -221,6 +221,36 @@ OrderBy , OrderByDescending , ThenBy , ThenByDescending ,
 1. [The Right Way to do Equality in C#](http://www.aaronstannard.com/overriding-equality-in-dotnet/)
 
 ---
+
+### 補充 : 製造泛型的 IEqualityComparer
+```
+class EqualityComparer<TSource> : IEqualityComparer<TSource> where TSource : class
+{
+     private PropertyInfo[] properties = null;
+     public new bool Equals(TSource x, TSource y)
+     {
+          if (properties == null)
+               properties = x.GetType().GetProperties();
+          return properties.Aggregate(true, (result, item) =>
+          {
+               return result && item.GetValue(x).Equals(item.GetValue(y));
+          });
+     }
+
+     public int GetHashCode(TSource obj)
+     {
+          if (properties == null)
+               properties = obj.GetType().GetProperties();
+          return properties.Aggregate(0, (result, item) =>
+          {
+               return result ^ item.GetValue(obj).GetHashCode();
+          });
+     }
+}
+```
+
+
+---
 ### Thank you! 
 
 You can find me on
