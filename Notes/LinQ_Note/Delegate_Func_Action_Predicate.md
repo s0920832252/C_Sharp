@@ -21,7 +21,7 @@ public delegate T CityDelegate<T>(T arg, T arg2);
 2. 委派方法參數型別
 3. 委派方法參數的數量
 
-若是使用泛型後 , 則只剩下委派方法參數的數量這一點.
+若是使用泛型後 , 則只剩下委派方法參數的數量這一點還需要開發者定義.
 
 ### [泛型](https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/generics/)
 
@@ -38,7 +38,7 @@ public delegate T CityDelegate<T>(T arg, T arg2);
    像是前言中的例子 , 原本需要宣告複數個委派 , 但最後只需要一個.
 3. 效能較佳
    泛型集合類型在儲存和管理實值類型上 , 通常有較好的表現 , 因為不需要 box 實值類型.
-    - 雖然我們也可以透過宣告型別為object來達到跟泛型類似的效果. 但其效能會比較差.
+    - 雖然我們也可以透過宣告型別為 object 來達到跟泛型類似的效果. 但其效能會比較差.
       ```C#
       public delegate object CityDelegate(object arg, object arg2);
       ```
@@ -56,7 +56,7 @@ public delegate T CityDelegate<T>(T arg, T arg2);
 
 ### Func、Action、Predicate
 
-雖然我們可以用泛型委派去解決不同型別的問題 , 但是因為還有**委派方法參數的數量**這一點尚未解決 , 所以我們仍然必須要宣告委派已明確它的結構. 但微軟如果預先替我們宣告好那些我們可能必須自行宣告的泛型委派呢!? 像是下面這樣:
+雖然我們可以用泛型委派去解決不同型別的問題 , 但是因為還有**委派方法參數的數量**這一點尚未解決 , 所以我們仍然必須要宣告委派已明確它的結構. 但微軟已經預先替我們宣告好那些我們可能必須自行宣告的泛型委派了. 像是下面這樣:
 ```C#
 public delegate TResult func<TResult>();
 public delegate TResult func<T1, TResult>(T1 arg1);
@@ -68,10 +68,10 @@ public delegate TResult func<T1, T2, T3, TResult>(T1 arg1, T2 arg2, T3 arg3);
 
 #### [Func](https://docs.microsoft.com/zh-tw/dotnet/api/system.func-1?view=netframework-4.8)
 
-Func是一個具有回傳值的泛型委派. 其型式為 Func<T , T1 , … , Tn , TResult>
-Func<T , T1 , … , Tn , TResult> 代表一個委派有n+1個輸入參數 , 其型別分別為 T ~ Tn , 且有一個型別為TResult的回傳值 ,
+Func 是一個具有回傳值的泛型委派. 其型式為 Func<T , T1 , … , Tn , TResult>.    
+Func<T , T1 , … , Tn , TResult> 代表一個委派有 n+1 個輸入參數 , 其型別分別為 T ~ Tn , 且有一個型別為 TResult 的回傳值 ,
 
-下圖是微軟預先定義的Func , 總共有十七個. 也就是說Func的輸入參數最多可以接受十六個輸入參數. 最少零個.
+下圖是微軟預先定義的 Func , 總共有十七個. 也就是說 Func 的輸入參數最多可以接受十六個輸入參數. 最少零個.
 
 
 ![](https://i.imgur.com/5v7AYfi.png)
@@ -86,10 +86,10 @@ Console.WriteLine(ans);
 結果會印出 **string is 5**
 
 #### [Action](https://docs.microsoft.com/zh-tw/dotnet/api/system.action-1?view=netframework-4.8)
-Action是一個回傳void的委派 , 不一定會使用泛型. 其型式為 Action<T , T1 , … , Tn > .
-Action<T , T1 , … , Tn > 代表一個委派有n+1個輸入參數 , 其型別分別為 T ~ Tn , 沒有任何的回傳值.
+Action 是一個回傳 void 的委派 , 不一定會使用泛型. 其型式為 Action<T , T1 , … , Tn > .    
+Action<T , T1 , … , Tn > 代表一個委派有 n+1 個輸入參數 , 其型別分別為 T ~ Tn , 沒有任何的回傳值.
 
-同Func , Action的輸入參數最多可以有十六個 , 最少零個
+與 Func 相同 , Action 的輸入參數最多可以有十六個 , 最少零個
 
 ##### 範例
 ```C#
@@ -99,7 +99,7 @@ ShowString(5);
 結果會印出 **5**
 
 #### [Predicate](https://docs.microsoft.com/zh-tw/dotnet/api/system.predicate-1?view=netframework-4.8)
-Predicate是一個回傳bool值的委派. 其型式為 Predicate<T> .
+Predicate 是一個回傳 bool 值的委派. 其型式為 Predicate<T> .
 其通常用來判斷傳入的**某個**實體是否符合某種規則.
 
 ```C#
@@ -107,21 +107,28 @@ Predicate<int> BigThanFive = (int i) => i > 5;
 const int num = 7;
 Console.WriteLine($"數字 {num} 是否大於 5 : {BigThanFive(num)}");
 ```
-結果會印出 **數字  是否大於 5 : true**
+結果會印出 **數字 7 是否大於 5 : true**
 
 ---
 
 ### 總結
 
-在LinQ中的Enumerable這個靜態類別 , 幾乎都是針對 IEnumerable<TSource> 來設計擴充方法. 其型式可能如下 : 
+在 LinQ 中的 Enumerable 這個靜態類別 , 幾乎都是針對 IEnumerable<TSource> 來設計擴充方法. 其型式可能如下 : 
 ```C#
-public IEnumerable<TSource> MyWhere<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+public static IEnumerable<TSource> MyWhere<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate)
+{
+     foreach (var item in source)
+     {
+          if (predicate(item))
+          {
+               yield return item;
+          }
+     }
+}
 ```
 
-然後在方法內走訪IEnumerable<TSource> (不論是透過Foreach 還是GetEnumerator() ) , 在走訪的過程中 , 每一個TSource item 會作為委派的參數傳入 , 並得到委派的回傳值 . 依照此回傳值做出相對應的處理 .
+然後在方法內走訪 IEnumerable<TSource> (不論是透過 Foreach 還是 GetEnumerator() ) , 在走訪的過程中 , 每一個 TSource item 會作為委派的參數傳入 , 並得到委派的回傳值 . 依照此回傳值做出相對應的處理 .
 回傳結果則看處理是否會使用 yield return.
-- 若是使用的話, 則函式回傳值為 IEnumerable<TSource> 或 IEnumerable<TResult> .
-- 若是沒有的話 , 則直接回傳實值型別的結果.
 
 ---
 
