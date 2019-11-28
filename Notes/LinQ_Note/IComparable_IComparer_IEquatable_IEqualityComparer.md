@@ -100,8 +100,13 @@ class EmployeeComparer : IEqualityComparer<Employee>
 
 static void Main(string[] args)
 {
-    List<Employee> employees = new List<Employee> { new Employee { Id = 1, Name = "王" } };
-    List<Employee> employees2 = new List<Employee> { new Employee { Id = 2, Name = "綠" }, new Employee { Id = 1, Name = "王" } };
+    List<Employee> employees = new List<Employee> { 
+                                  new Employee { Id = 1, Name = "王" } 
+                               };
+    List<Employee> employees2 = new List<Employee> { 
+                                  new Employee { Id = 2, Name = "綠" }, 
+                                  new Employee { Id = 1, Name = "王" } 
+                                };
     foreach (var emp in employees.Union(employees2, new EmployeeComparer()))
     {
         Console.Write(" " + emp.Name);
@@ -187,7 +192,11 @@ class EmployeeCompare : IComparer<Employee>
 
 static void Main(string[] args)
 {
-     List<Employee> employees = new List<Employee> { new Employee { Id = 3, Name = "王" }, new Employee { Id = 1, Name = "綠" }, new Employee { Id = 2, Name = "王" } };
+     List<Employee> employees = new List<Employee> { 
+                                 new Employee { Id = 3, Name = "王" }, 
+                                 new Employee { Id = 1, Name = "綠" }, 
+                                 new Employee { Id = 2, Name = "王" } 
+                                 };
      employees.Sort(new EmployeeCompare());
      foreach (var employee in employees)
      {
@@ -196,7 +205,10 @@ static void Main(string[] args)
      Console.ReadKey();
 }
 ```
-
+##### 輸出結果
+1. 綠
+2. 王
+3. 王
 
 ---
 
