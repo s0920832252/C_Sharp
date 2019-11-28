@@ -70,7 +70,7 @@ public class City
 
 ---
 
-### C#2.0 匿名方法 delegate關鍵字
+### C#2.0 匿名方法 delegate 關鍵字
 
 格式 : delegate (arguments) { statements }
 - delegate: 匿名方法的保留字
@@ -78,7 +78,7 @@ public class City
     - 輸入參數可有多個. 使用逗號隔開. 但需要**定義參數型別**.
 - statements: 此函式執行的程式碼片段
 
-在C# 2.0中引入匿名方法後 , 就不必一定要使用某一個執行個體方法或靜態方法 , 來指定委派變數. **可直接透過匿名方法來定義委派要執行的內容**.
+在 C# 2.0 中引入匿名方法後 , 就不必一定要使用某一個執行個體方法或靜態方法 , 來指定委派變數. **可直接透過匿名方法來定義委派要執行的內容**.
 
 ##### 範例
 ```C#
@@ -146,7 +146,7 @@ public class City
                      } //合法
           ```
 
-#### 比較Lambda與匿名方法的差異
+#### 比較 Lambda 與匿名方法的差異
 1. **不用透過 delegate 關鍵字**來建立匿名函式.
 2. 除非會影響可讀性 , 否則**不需要定義參數的型別** .
 3. 括弧可以省略 .
@@ -187,8 +187,8 @@ ps : 網路上一些文章習慣稱呼這樣透過使用匿名函式實體化的
 
 以下簡易地實作 LinQ 的 Where 方法來作為此篇的結論
 ```C#
-public delegate bool CityPredicate<T>(T item);
-static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, CityPredicate<T> predicate)
+public delegate bool CityPredicate<TSource>(TSource item);
+static IEnumerable<TSource> MyWhere<TSource>(this IEnumerable<TSource> source, CityPredicate<TSource> predicate)
 {
      foreach (var item in source)
      {
