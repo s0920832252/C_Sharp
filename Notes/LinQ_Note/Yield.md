@@ -22,7 +22,7 @@ C#的語法糖真的是多到一個爆炸呀:laughing:
 > 每次反覆運算foreach迴圈 (或直接呼叫 IEnumerator.MoveNext)，下一個迭代器程式碼主體都會在上一個 yield return 陳述式之後繼續。 然後繼續執行至下一個 yield return 陳述式，直到達到迭代器主體結尾，或遇到 yield break 陳述式為止。
 
 
-##### 範例1 - 使用yield完成走訪功能
+#### 範例1 - 使用 yield 完成走訪功能
 
 ```C#
 public class DaysOfTheWeek : IEnumerable
@@ -38,10 +38,33 @@ public class DaysOfTheWeek : IEnumerable
 }
 ```
 
+```C#
+static void Main(string[] args)
+{
+     DaysOfTheWeek week = new DaysOfTheWeek();
+
+     foreach (string day in week)
+     {
+          Console.Write(day + " ");
+     }
+
+     Console.WriteLine();
+
+     var emumerator = week.GetEnumerator();
+     while (emumerator.MoveNext())
+     {
+          Console.Write(emumerator.Current + " ");
+     }
+
+     Console.ReadKey();
+}
+```
+
+##### 輸出結果
 ![](https://i.imgur.com/NGActqW.png)
 
 
-##### 範例2 - 不使用yield完成走訪功能
+#### 範例2 - 不使用 yield 完成走訪功能
 
 ```C#
 public class DaysOfTheWeek : IEnumerable
@@ -66,16 +89,37 @@ public class DaysOfTheWeekEnumerator : IEnumerator
      public void Reset() => _index = -1;
 }
 ```
+```C#
+static void Main(string[] args)
+{
+     DaysOfTheWeek week = new DaysOfTheWeek();
 
+     foreach (string day in week)
+     {
+          Console.Write(day + " ");
+     }
+
+     Console.WriteLine();
+
+     var emumerator = week.GetEnumerator();
+     while (emumerator.MoveNext())
+     {
+          Console.Write(emumerator.Current + " ");
+     }
+
+     Console.ReadKey();
+}
+```
+##### 輸出結果
 ![](https://i.imgur.com/5LnI64S.png)
 
 
 由上面兩個範例 我們可以知道
-- yield可幫助自動產生走訪器 , 因此我們**不必自行定義一個實現IEnumerator的類別**.
+- yield 可幫助自動產生走訪器 , 因此我們**不必自行定義一個實現 IEnumerator 的類別**.
 
 #### 執行順序
 
-##### 範例 - 走訪list內成員
+##### 範例 - 走訪 list 內成員
 
 ```C#
 public class CityManager
@@ -96,6 +140,32 @@ public class CityManager
      }
 }
 ```
+```C#
+static void Main(string[] args)
+{
+     var enumerable = CityManager.GetEnumerable(new List<int>(){ 6, 5, 3, 13, 9, 8, 7 });
+
+     Console.WriteLine($"執行了foreach之前");
+     foreach (var num in enumerable)
+     {
+          Console.WriteLine($"foreach - 現在的值是{num}");
+          Console.WriteLine($"數字:{num}處理完畢.跳下一個數字");
+          Console.WriteLine();
+     }
+
+     Console.WriteLine($"------------分隔線----------------");
+
+     var enumerator = enumerable.GetEnumerator();
+     while (enumerator.MoveNext())
+     {
+          Console.WriteLine($"foreach - 現在的值是{enumerator.Current}");
+          Console.WriteLine($"數字:{enumerator.Current}處理完畢.跳下一個數字");
+          Console.WriteLine();
+     }
+
+     Console.ReadKey();
+}
+```
 
 ![](https://i.imgur.com/Js81Jn4.png)
 
@@ -103,21 +173,21 @@ public class CityManager
 
 
 由上面的範例 我們可以知道執行順序是
-1. foreach & in在執行時會呼叫MoveNext() , 然後取出Current的值
-1. 取出Current的值後 , 執行foreach主體.
-1. foreach要取下一個Item時 , 會呼叫MoveNext() , 此時會從剛剛的yield return處下一行開始執行.
-1. 上述三個動作會重複執行 , 直到走訪完畢或是碰到yield break為止.
+1. foreach & in 在執行時會呼叫 MoveNext() , 然後取出 Current 的值
+1. 取出 Current 的值後 , 執行 foreach 主體.
+1. foreach 要取下一個 Item 時 , 會呼叫 MoveNext() , 此時會從剛剛的 yield return 處下一行開始執行.
+1. 上述三個動作會重複執行 , 直到走訪完畢或是碰到 yield break 為止.
 
 ---
 
 
 ### 總結
 
-- 使用yield return可以輕鬆建立一個IEnumerable<T>的資料集合.
-- 執行yield return後 , 下一次被呼叫時 , 會繼續從上一次的yield return後開始執行.
-- 呼叫yield break後 , 會離開foreach主體.
-- 如果一個區塊(block)中有 yield 陳述式，則此區塊就叫做Iterator Block
-    - 一個方法的區塊如果是Iterator Block , 則它的回傳值會是IEnumerable或是IEnumerator. 請參考[C# 語言規格-類別](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/language-specification/classes#iterators)
+- 使用 yield return 可以輕鬆建立一個 IEnumerable<T> 的資料集合.
+- 執行 yield return 後 , 下一次被呼叫時 , 會繼續從上一次的 yield return 後開始執行.
+- 呼叫 yield break 後 , 會離開 foreach 主體.
+- 如果一個區塊(block)中有 yield 陳述式，則此區塊就叫做 Iterator Block
+    - 一個方法的區塊如果是 Iterator Block , 則它的回傳值會是 IEnumerable 或是IEnumerator. 請參考[C# 語言規格-類別](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/language-specification/classes#iterators)
     - ![](https://i.imgur.com/fHr22mu.png)
 
     
@@ -125,7 +195,7 @@ public class CityManager
 
 ---
 
-### 補充 - 不使用yield實作 走訪list內成員
+### 補充 - 不使用 yield 實作走訪 list 內成員
 ```C#
 public class CityManger
 {
