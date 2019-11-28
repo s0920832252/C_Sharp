@@ -156,9 +156,10 @@ static void Main(string[] args)
      Console.WriteLine($"------------分隔線----------------");
 
      var enumerator = enumerable.GetEnumerator();
+     Console.WriteLine($"執行了while之前");
      while (enumerator.MoveNext())
      {
-          Console.WriteLine($"foreach - 現在的值是{enumerator.Current}");
+          Console.WriteLine($"while - 現在的值是{enumerator.Current}");
           Console.WriteLine($"數字:{enumerator.Current}處理完畢.跳下一個數字");
           Console.WriteLine();
      }
