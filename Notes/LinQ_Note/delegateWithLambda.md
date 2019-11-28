@@ -5,22 +5,19 @@ tags: LinQ, LinQ基礎 , C#
 # LINQ基礎 - 委派與Lambda
 
 ### 前言
-為了要對於每一筆資料做特定的處理 , LinQ方法常會在走訪資料集合的時候 , 透過執行委派來得到期望的結果. 而為求方便與簡潔 , LinQ常使用Lambda來指定委派. 所以Lambda對於LinQ來說 , 非常重要. 
+為了要對於每一筆資料做特定的處理 , LinQ 方法常會在走訪資料集合的時候 , 透過執行委派來得到期望的結果. 而為求方便與簡潔 , LinQ 常使用 Lambda 來指定委派. 所以 Lambda 對於 LinQ 來說 , 非常重要. 
 
 ### [委派](https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/delegates/)
-程式設計的三個階段 
-1. 取得輸入
-2. 處理資料
-3. 輸出結果
-
-委派可以讓呼叫者來決定一個流程中某個部分的程式邏輯. 例如宣告一件事情要做(可以想成是function pointer) , 但這件事情由哪一個實體呼叫 , 何時呼叫以及實際上如何實作在宣告委派的時候是未定的.
+委派的概念類似於 C++ 的函式指標 , 也許可以想成是儲存方法的變數(?)
 
 使用委派的過程如下
 * 建立委派一個 , 步驟如下
-    1. 定義委派的結構
-    2. 定義一個滿足上述委派結構的方法
-    3. 建立一個委派的實體
-* 呼叫委派實體 (可使用invoke , 進行呼叫)
+    1. 定義委派的結構 -> E.g. delegate void ShowMoneyType(string s, int x)
+    2. 宣告一個委派變數 -> E.g. ShowMoneyType someThing
+    3. 定義一個滿足上述委派結構的方法 -> E.g. void DisplayCash(string str , int value)
+        - 輸入參數個數以及型態和回傳值都必須與該委派結構相同 , 否則無法存入委派.
+    5. 指派給委派一個實體 -> E.g. someThing=DisplayCash
+* 呼叫委派實體 (可使用 invoke , 進行呼叫)
 
 由上面的步驟 , 或許可將委派想成有三個層面
 - 宣告端 : 定義委派結構
@@ -45,9 +42,9 @@ tags: LinQ, LinQ基礎 , C#
 static class Program
 {
      // 邏輯端 - 實際要做的事情細節
-     public static void DisplayCash(string str , int value)
+     public static void DisplayCash(string name , int value)
      {
-         Console.WriteLine($"{str} have {value}");
+         Console.WriteLine($"{name} have {value}");
      }
      
      static void Main(string[] args)
@@ -150,11 +147,11 @@ public class City
           ```
 
 #### 比較Lambda與匿名方法的差異
-1. **不用透過delegate關鍵字**來建立匿名函式.
+1. **不用透過 delegate 關鍵字**來建立匿名函式.
 2. 除非會影響可讀性 , 否則**不需要定義參數的型別** .
 3. 括弧可以省略 .
 
-參考此[資料](https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions) , 微軟也建議我們開始使用Lambda取代匿名方法
+參考此[資料](https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/statements-expressions-operators/anonymous-functions) , 微軟也建議我們開始使用 Lambda 取代匿名方法
 > 我們建議使用 Lambda 運算式，因為它們提供更簡潔且更具表達性的方式來撰寫內嵌程式碼.
 
 ##### 範例
@@ -183,12 +180,12 @@ public class City
 ---
 
 ### 結論
-想要建立一個符合委派結構的實體 , 從一開始 C#1.0 只能透過指定一個具名函式 , 到 C#2.0 可以使用delegate關鍵字以建立匿名方法來定義匿名函式 , 到 C#3.0 可以使用**更簡易**的Lambda語法來定義匿名函式
-透過Lambda , 我們不必再額外定義一個方法去作為具名函式了 , 而是可以再需要呼叫委派時 , 馬上透過Lambda語法 , **即時**的實體化委派並呼叫.
+想要建立一個符合委派結構的實體 , 從一開始 C#1.0 只能透過指定一個具名函式 , 到 C#2.0 可以使用 delegate 關鍵字以建立匿名方法來定義匿名函式 , 到 C#3.0 可以使用**更簡易**的 Lambda 語法來定義匿名函式
+透過 Lambda , 我們不必再額外定義一個方法去作為具名函式了 , 而是可以再需要呼叫委派時 , 馬上透過 Lambda 語法 , **即時**的實體化委派並呼叫.
 
-ps : 網路上一些文章習慣稱呼這樣透過使用匿名函式實體化的委派為**匿名委派** , 不過我找了微軟Doc很久 , 並沒有發現這樣的稱呼呀 :crying_cat_face: 
+ps : 網路上一些文章習慣稱呼這樣透過使用匿名函式實體化的委派為**匿名委派** , 不過我找了微軟文件很久 , 並沒有發現這樣的稱呼呀 :crying_cat_face: 
 
-以下簡易地實作LinQ的Where方法來作為此篇的結論
+以下簡易地實作 LinQ 的 Where 方法來作為此篇的結論
 ```C#
 public delegate bool CityPredicate<T>(T item);
 static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, CityPredicate<T> predicate)
@@ -213,7 +210,10 @@ static void Main(string[] args)
 }
 ```
 
-輸出結果 : **5 , 8 , 7**
+##### 輸出結果
+5    
+8    
+7    
 
 ---
 
@@ -275,7 +275,10 @@ static void Main(string[] args)
 }
 ```
 
-輸出 :  **11 , 9 , 10**
+##### 輸出
+11    
+9    
+10    
 
 
 
