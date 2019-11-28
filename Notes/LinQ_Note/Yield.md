@@ -168,6 +168,8 @@ static void Main(string[] args)
 }
 ```
 
+##### 輸出結果
+
 ![](https://i.imgur.com/Js81Jn4.png)
 
 
@@ -189,7 +191,10 @@ static void Main(string[] args)
 - 呼叫 yield break 後 , 會離開 foreach 主體.
 - 如果一個區塊(block)中有 yield 陳述式，則此區塊就叫做 Iterator Block
     - 一個方法的區塊如果是 Iterator Block , 則它的回傳值會是 IEnumerable 或是IEnumerator. 請參考[C# 語言規格-類別](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/language-specification/classes#iterators)
-    - ![](https://i.imgur.com/fHr22mu.png)
+> Iterator 會產生一系列的值，這些都是相同的型別。 這個型別稱為 iterator 的yield 型別。
+> - 傳回IEnumerator object或IEnumerable的反覆運算器產生類型為 object。
+> - 傳回IEnumerator<T> T或IEnumerable<T>的反覆運算器產生類型為 T。
+> - ![](https://i.imgur.com/fHr22mu.png)
 
     
     
