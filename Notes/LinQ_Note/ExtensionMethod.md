@@ -61,19 +61,17 @@ tags: LinQ, LinQ基礎 , C#
 
 ### 呼叫方式種類
 
-1. 靜態方法呼叫
-   擴充方法本來就是靜態方法 , 因此可以透過其型別的名稱去呼叫.
-2. 擴充方法呼叫(物件)
-   透過其依附型別的物件去呼叫
+1. 靜態方法呼叫 : 擴充方法本來就是靜態方法 , 因此可以透過其型別的名稱去呼叫.
+2. 擴充方法呼叫(物件) : 透過其依附型別的物件去呼叫
    
 兩種呼叫方式 , 結果是相同的. 以下分別顯示兩種方法的呼叫方式.
 
 ##### 圖示說明
-* namespace為ConsoleApp1
-* 自定義一個City類別
-* CityExtension類別為靜態類別
-* CityExtension類別被定義在ConsoleApp1內
-* 擴充方法MaskName依附在自定義類別City上
+* namespace 為 ConsoleApp1
+* 自定義一個 City 類別
+* CityExtension 類別為靜態類別
+* CityExtension 類別被定義在 ConsoleApp1 內
+* 擴充方法 MaskName 依附在自定義類別 City 上
     ```C#
     public class City
     {
@@ -93,7 +91,7 @@ tags: LinQ, LinQ基礎 , C#
                    var plainText = orinialName.Substring(0, _plainTextLen);
                    var asteriskCount = orinialName.Length - _plainTextLen;
                    var encodingText = Enumerable.Repeat(_asterisk, asteriskCount).Aggregate((l, r) => l + r);
-                  result = plainText + encodingText;
+                   result = plainText + encodingText;
               }
               return result;
          }
@@ -114,19 +112,29 @@ tags: LinQ, LinQ基礎 , C#
 ![](https://i.imgur.com/tJ6hPOl.png)
 
 上述那個例子有兩點值得探討. 
-1. 擴充方法是屬於該靜態類別的 , 因此若是權限允許的話 , 自然也能存取靜態成員(實務上需要避免) 如下圖.
-![](https://i.imgur.com/AKfX1Vd.png)
-2. 即使是自定義類別(City) , 也可以依附. 只要此擴充方法的靜態類別認識這個類別即可.
+1. 擴充方法是屬於該靜態類別的 , 因此若是權限允許的話 , 自然也能存取靜態成員(實務上需要避免) 
+    ```C#
+    static void Main(string[] args)
+    {    // 測試程式碼
+         Console.WriteLine($"_plainTextLen = {CityExtension._plainTextLen}");
+         CityExtension._plainTextLen = 10;
+         Console.WriteLine($"_plainTextLen = {CityExtension._plainTextLen}");
+         Console.ReadKey();
+    }
+    ```
+     輸出結果如下圖.
+    ![](https://i.imgur.com/AKfX1Vd.png)
+2. 即使是自定義類別 City , 也可以依附. 只要此擴充方法的靜態類別認識這個類別即可.
 
 ---
 
 #### 結論
 - 擴充方法的存在能夠讓程序員在不修改原本既有型別(包含介面)的前提下 , 就可以將新的方法內容附加到該型別之上.
-- 擴充方法的使用範圍在其被定義的namespace中 , 因此只要using 該namespace , 也可以使用該擴充方法.
+- **擴充方法的使用範圍在其被定義的 namespace 中** , 因此只要 using 該 namespace , 也可以使用該擴充方法.
 - 擴充方法無法修改不能內部資訊 , 所以不會破壞原有型別的封裝性. 固可以針對型別來設計方法 , 將方法封裝 , 讓原本的型別在使用上可以更加便利.
-- **擴充方法不宜濫用** , 原因是會讓類別內的方法不一定被定義在該類別之中 , 此現象可能會造成維護上的困難.
-- 擴充方法針對的是型別! , 而型別與物件導向的繼承有關 , 因此若是擴充方法依附的型別被其他子型別繼承或實現 , 則子型別也同樣可以使用該擴充方法.
-- LinQ to Objects的方法 , 其大部分都寫在System.Linq(namespace)裡面的Enumerable(static class)中 , 且這些方法中大部分都依附在IEnumerable<T>這個**泛型介面**上. 也就是說只要using System.Linq這個命名空間 , 且繼承或實現IEnumerable<T>這個介面的型別 , 都可以使用Linq的擴充方法. 例如List<T> , IList<T> , Dictionary<TKey,TValue>等等常見的泛型資料集合 , 都有實作IEnumerable<T>. 另外有一些非泛型的資料集合 , 則通常都有實作IEnumerable這個**介面**(也就是可以使用foreach)
+- **擴充方法不宜濫用** , 原因是會讓類別內的方法不一定被定義在該類別之中 , 此現象可能會造成**維護上的困難**.
+- **擴充方法針對的是型別 !** , 而型別與物件導向的繼承有關 , 因此若是擴充方法依附的型別被其他子型別繼承或實現 , 則子型別也同樣可以使用該擴充方法.
+- LinQ to Objects 的方法 , 其大部分都寫在 System.Linq(namespace) 裡面的Enumerable(static class) 中 , 且這些方法中大部分都依附在 IEnumerable<T> 這個**泛型介面**上. 也就是說只要 using System.Linq 這個命名空間 , 且繼承或實現 IEnumerable<T>這個介面的型別 , 都可以使用 Linq 的擴充方法. 例如 List<T> , IList<T> , Dictionary<TKey,TValue> 等等常見的泛型資料集合 , 都有實作 IEnumerable<T>. 另外有一些非泛型的資料集合 , 則通常都有實作 IEnumerable 這個**介面**(也就是可以使用 foreach )
 
 ---
 ### 補充
