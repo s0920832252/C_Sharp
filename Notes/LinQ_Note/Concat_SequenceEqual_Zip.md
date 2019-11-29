@@ -197,7 +197,7 @@ The pets1 & pets3 are not equal.
 The storeA & storeB are equal.               
 The storeA & storeC are not equal.           
 ###############           
-The pets1 & pets2 are not equal.           
+The pets1 & pets2 are equal.           
 The pets1 & pets3 are not equal.           
 
 #### 簡單實作自己的 SequenceEqual
