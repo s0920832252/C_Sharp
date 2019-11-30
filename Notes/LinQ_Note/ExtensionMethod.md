@@ -22,13 +22,13 @@ tags: LinQ, LinQ基礎 , C#
 5.  擴充方法不可以定義在巢狀型別或泛型型別中。
 
 ### 宣告&呼叫方式
-1. 宣告namespace ->  ConsoleApp1
-2. 宣告Static class -> CityDateTimeExtension
-3. 宣告static function -> NextWeekDay
-4. 第一個參數前要加this , 參數型別代表要依附的型別 -> DateTime
-5. function回傳型別 , 代表此擴充方法回傳的型別. (與一般函數同) -> DateTime
+1. 宣告自己的 namespace -> 對照 : ConsoleApp1
+2. 宣告自己的 Static class -> 對照 : CityDateTimeExtension
+3. 宣告自己的 static function -> 對照 : NextWeekDay
+4. 第一個參數前要加 this , 參數型別代表要依附的型別 -> 對照 : DateTime
+5. function 回傳型別 , 代表此擴充方法回傳的型別. (與一般函數同) -> 對照 : DateTime
 
-    以下新增一個擴充方法NextWeekDay (回傳下一個星期的DateTime), 將其依附在DateTime類別. (原本DateTime類別沒有這個方法)
+    以下新增一個擴充方法 NextWeekDay (回傳下一個星期的 DateTime ), 將其依附在 DateTime 類別. (原本 DateTime 類別沒有這個方法)
     ```
     namespace ConsoleApp1
     {
@@ -43,7 +43,7 @@ tags: LinQ, LinQ基礎 , C#
     }
     ```
     以下是測試程式碼 - 印出下一個禮拜四的日期時間.
-    在**namespace ConsoleApp1範圍內 , DateTime可以呼叫NextWeekDay這個方法.**
+    在 **namespace ConsoleApp1 範圍內 , DateTime 可以呼叫NextWeekDay 這個方法.**
     ```
     namespace ConsoleApp1
     {
