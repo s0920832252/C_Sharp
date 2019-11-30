@@ -189,9 +189,9 @@ Select->輸出結果: Name = "老黃"
 - ![](https://i.imgur.com/bDZxC0t.png)
 8. 同理 , where() 內的 source 是 students , 而 studnets 是來自於 GetStudent() 的結果. 
 - ![](https://i.imgur.com/3OpOWFH.png)
-9. 進入 GetStudent()內 , 並回傳第一個結果 , 小王.
+9. 進入 GetStudent() 內 , 並回傳第一個結果 , 小王.
 - ![](https://i.imgur.com/fc6euJr.png)
-10. 回到 Where() , 因為小王不符合predicate的條件 , 因此沒進入 if 敘述內. 直接繼續執行while(). 也就是繼續呼叫 MoveNext().
+10. 回到 Where() , 因為小王不符合 predicate 的條件 , 因此沒進入 if 敘述內. 直接繼續執行 while(). 也就是繼續呼叫 MoveNext().
 - ![](https://i.imgur.com/5DjZzy5.png)
 11. 取得第二個結果 , 大明.
 - ![](https://i.imgur.com/5GlrB2G.png)
