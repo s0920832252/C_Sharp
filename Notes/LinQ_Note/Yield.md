@@ -11,7 +11,7 @@ C#的語法糖真的是多到一個爆炸呀:laughing:
 
 ### [Iterators](https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/concepts/iterators) & [yield](https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/keywords/yield)
 
-> yield在C#2.0 時提供
+> yield 在 .Net 2.0 時提供
 
 > 當編譯器偵測到迭代器時，它會**自動產生**IEnumerator 或 IEnumerator<T> 介面的 Current、MoveNext 和 Dispose 方法。
 
